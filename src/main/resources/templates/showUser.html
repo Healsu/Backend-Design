@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>showUser</title>
+</head>
+<body>
+
+<h1>Hello world</h1>
+<table>
+    <tr
+            th:each="returnChosenUser : ${OneUser}">
+        <td th:text="${returnChosenUser.getEmployeeName()}"></td>
+        <td th:text="${returnChosenUser.getEmployeeJob()}"></td>
+        <td th:text="${returnChosenUser.getManager()}"></td>
+        <td th:text="${returnChosenUser.getHiredate()}"></td>
+        <td th:text="${returnChosenUser.getEmployeeSalary()}"></td>
+        <td th:text="${returnChosenUser.getCommission()}"></td>
+        <td th:text="${returnChosenUser.getDepartmentNumber()}"></td>
+
+
+
+    </tr>
+</table>
+
+</body>
+</html>

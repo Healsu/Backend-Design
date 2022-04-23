@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SeeAllUsers</title>
+    <link rel="stylesheet" th:href="@{Stylesheet.css}"  type="text/css">
+</head>
+<body>
+<h1>An overview on all the diffrent employees</h1>
+<table>
+    <tr
+            th:each="newEmployee : ${allCurrentUsers}">
+        <td th:text="${newEmployee.getEmployeeName()}"></td>
+        <td th:text="${newEmployee.getEmployeeJob()}"></td>
+        <td th:text="${newEmployee.getManager()}"></td>
+        <td th:text="${newEmployee.getHiredate()}"></td>
+        <td th:text="${newEmployee.getEmployeeSalary()}"></td>
+        <td th:text="${newEmployee.getCommission()}"></td>
+        <td th:text="${newEmployee.getDepartmentNumber()}"></td>
+
+
+
+    </tr>
+</table>
+</body>
+</html>
