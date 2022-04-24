@@ -19,18 +19,18 @@ public class UserIntegration {
     private ResultSet rs;
 
 
-    public List<employee> returnUser(String userInput){
+    public List<employee> returnUser(String userInput) {
         ArrayList<employee> returnChosenUser = new ArrayList<employee>();
         try {
             Connection conn = DatabaseConnector.getConnection();
 
 
-            sqlString = "SELECT * FROM employees "+ "WHERE id= " + userInput;
+            sqlString = "SELECT * FROM employees " + "WHERE id= " + userInput;
 
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sqlString);
 
-            while(rs.next()){
+            while (rs.next()) {
 
                 String EmName = rs.getString(2);
                 String job = rs.getString(3);
@@ -39,16 +39,36 @@ public class UserIntegration {
                 int salary = rs.getInt(6);
                 int comission = rs.getInt(7);
                 int DpNumb = rs.getInt(8);
-        returnChosenUser.add(new employee(userInput,EmName,job,manager,hiredate,salary,comission, DpNumb));
-
+                returnChosenUser.add(new employee(userInput, EmName, job, manager, hiredate, salary, comission, DpNumb));
 
 
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
 
         return returnChosenUser;
     }
-}
+
+
+    public boolean addUserDB(String ID, String name, String job, String manager, String hire, String salary, String commission, String DP) {
+        Connection conn = DatabaseConnector.getConnection();
+
+        sqlString = "INSERT INTO " + "employees " + "(id,employee_name,job,manager,hiredate,salary,commission,department_number)" +
+                " values (" + "'" + ID + "','" + name + "','" + job + "','" + manager + "','" + hire + "','" + salary + "','" + commission + "','" + DP + "');";
+
+
+        try {
+            stmt = conn.createStatement();
+            stmt.executeUpdate(sqlString);
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    }
+

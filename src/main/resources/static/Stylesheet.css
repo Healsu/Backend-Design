@@ -1,3 +1,9 @@
 table, th, td {
     border: 1px solid black;
 }
+.createUserBox{
+    background-color: #fefefe;
+    margin: auto;
+    width: 400px;
+    text-align: center;
+}

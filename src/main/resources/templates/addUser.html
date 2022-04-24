@@ -3,17 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>AddUser</title>
+    <link rel="stylesheet"  href="/Stylesheet.css">
 </head>
 <body>
+
+<h2>Add new user</h2>
+<fieldset div class="createUserBox">
 <form action="/Send-Info" method="POST">
+
     <div class="inputContainer">
-        <input class="input-field"  type="text" name="userName" id="userName" placeholder="Enter username" required>
-        <input class="input-field"  type="text" name="userMail" id="userMail" placeholder="Enter mail" required>
+        <input class="input-field"  type="text" name="employeeID" id="employeeID" placeholder="Enter ID (Between 7000-8000)" required>
+        <input class="input-field"  type="text" name="employeeName" id="employeeName" placeholder="Enter Name" required>
+        <input class="input-field"  type="text" name="employeeName" id="employeeJob" placeholder="Enter Job" required>
+        <input class="input-field"  type="text" name="employeeManager" id="employeeManager" placeholder="Enter Manager ID" required>
+        <input class="input-field"  type="text" name="employeeHIRE" id="employeeHIRE" placeholder="Enter hire date" required>
+        <input class="input-field"  type="text" name="employeeSALARY" id="employeeSALARY" placeholder="Enter salary" required>
+        <input class="input-field"  type="text" name="employeeComm" id="employeeComm" placeholder="Enter Commission" required>
+        <input class="input-field"  type="text" name="employeeDP" id="employeeDP" placeholder="Enter Department Number" required>
     </div>
 
-
+    <input class="input-button" type="submit" value="Add User">
 
 </form>
+</fieldset>
 
 </body>
 </html>

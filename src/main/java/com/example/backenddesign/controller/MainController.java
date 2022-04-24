@@ -28,10 +28,33 @@ public class MainController {
         return "Homepage";
     }
 
-    @PostMapping("/Send-Info")
-    public String addingUser(WebRequest dataFromForm, HttpSession session, Model model){
+    @GetMapping("/addUser")
+    public String adduser(){
 
-        return null;
+        return "addUser";
+    }
+
+    @PostMapping("/Send-Info")
+    public String addingUser(WebRequest dataFromForm){
+
+        UserIntegration addUser = new UserIntegration();
+
+        String ID = (dataFromForm.getParameter("employeeID"));
+        String name = (dataFromForm.getParameter("employeeName"));
+        String job = (dataFromForm.getParameter("employeeJob"));
+        String manager = (dataFromForm.getParameter("employeeManager"));
+        String hire = (dataFromForm.getParameter("employeeHIRE"));
+        String salary = (dataFromForm.getParameter("employeeSALARY"));
+        String commission = (dataFromForm.getParameter("employeeComm"));
+        String DP = (dataFromForm.getParameter("employeeDP"));
+
+
+
+        if( addUser.addUserDB(ID,name,job,manager,hire,salary,commission,DP) == true) {
+            return "Homepage";
+        }else{
+            return "addUser";
+        }
     }
     @PostMapping("/Find-Info-Single")
     public String findUser(WebRequest dataFromForm, Model model) {
