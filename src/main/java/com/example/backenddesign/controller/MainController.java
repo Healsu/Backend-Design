@@ -51,7 +51,7 @@ public class MainController {
 
 
         if( addUser.addUserDB(ID,name,job,manager,hire,salary,commission,DP) == true) {
-            return "Homepage";
+            return "redirect:/main\"";
         }else{
             return "addUser";
         }
